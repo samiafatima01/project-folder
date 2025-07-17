@@ -1,48 +1,62 @@
-h1 {
-  text-align: center;
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fce3ec, #ffe8cc);
+}
+
+.app-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-  max-width: 400px;
-  margin: auto;
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
 }
 
 .input-area {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 #taskInput {
   flex: 1;
-  padding: 8px;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
   font-size: 16px;
+  outline: none;
 }
 
 #addTaskBtn {
-  background-color: #4CAF50;
-  color: white;
+  padding: 12px 20px;
   border: none;
-  transition: 0.3s;
+  background-color: #ff6f91;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
 #addTaskBtn:hover {
-  background-color: #45a049;
+  background-color: #db1e4a;
 }
-
 
 #taskList {
   list-style: none;
@@ -50,34 +64,31 @@ body {
 }
 
 #taskList li {
-  background: #eaeaea;
+  background: #f9f9f9;
+  padding: 12px;
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 4px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 15px;
 }
 
-.done {
+#taskList li.done {
   text-decoration: line-through;
-  color: gray;
-  
+  color: #aaa;
 }
+
 li button {
-  background-color: #78a1c1;
+  background-color: #3284e7;
   color: white;
   border: none;
+  border-radius: 8px;
   padding: 5px 10px;
+  font-size: 12px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 li button:hover {
-  background-color: #e53935;
+  background-color: #ef1e1e;
 }
-li:hover {
-  background-color: #f0f0f0;
-}
-
-
