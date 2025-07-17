@@ -19,7 +19,7 @@ function addTask() {
   let li = document.createElement("li");
   li.textContent = text;
 
-  // Mark as completed on click
+  
   li.addEventListener("click", function () {
     li.classList.toggle("done");
   });
@@ -27,7 +27,8 @@ function addTask() {
   // Delete button
   let btn = document.createElement("button");
   btn.textContent = "Delete";
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
     li.remove();
     save();
   });
@@ -58,3 +59,5 @@ function load() {
 }
 
 load();
+
+
