@@ -11,15 +11,20 @@ input.addEventListener("keydown", function (e) {
     addTask();
   }
 });
-
 function addTask() {
   let text = input.value.trim();
-  if (text === "") return;
+  let error = document.getElementById("errorMessage");
+
+  if (text === "") {
+    error.style.display = "block";
+    return;
+  } else {
+    error.style.display = "none";
+  }
 
   let li = document.createElement("li");
   li.textContent = text;
 
-  
   li.addEventListener("click", function () {
     li.classList.toggle("done");
   });
