@@ -12,14 +12,14 @@ input.addEventListener("keydown", function (e) {
   }
 });
 function addTask() {
-  let text = input.value.trim(); // 🟢 first define the text
-  let error = document.getElementById("errorMessage");
+  const text = input.value.trim();
+  const error = document.getElementById("errorMessage");
 
   if (text === "") {
-    error.textContent = "Please fill the field below to proceed.";
+    error.style.display = "block"; 
     return;
   } else {
-    error.textContent = "";
+    error.style.display = "none"; 
   }
 
   let li = document.createElement("li");
@@ -29,11 +29,10 @@ function addTask() {
     li.classList.toggle("done");
   });
 
-  // Delete button
   let btn = document.createElement("button");
   btn.textContent = "Delete";
   btn.addEventListener("click", function (e) {
-    e.stopPropagation(); // stops toggling on delete click
+    e.stopPropagation();
     li.remove();
     save();
   });
@@ -43,6 +42,7 @@ function addTask() {
   input.value = "";
   save();
 }
+
 
 
 function save() {
@@ -72,4 +72,28 @@ if (logoutBtn) {
     localStorage.clear();
     window.location.href = "login.html";
   });
+}
+
+function changePassword() {
+  const username = document.getElementById("changeUsername").value.trim();
+  const oldPass = document.getElementById("oldPassword").value;
+  const newPass = document.getElementById("newPassword").value;
+  const msg = document.getElementById("changePassMsg");
+
+  if (!username || !oldPass || !newPass) {
+    msg.textContent = "All fields are required.";
+    return;
+  }
+
+  const user = JSON.parse(localStorage.getItem(username));
+
+  if (!user || user.password !== oldPass) {
+    msg.textContent = "Incorrect username or old password.";
+    return;
+  }
+
+  user.password = newPass;
+  localStorage.setItem(username, JSON.stringify(user));
+  msg.style.color = "green";
+  msg.textContent = "Password changed successfully!";
 }

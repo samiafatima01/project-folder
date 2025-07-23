@@ -111,3 +111,40 @@ button {
   color: red;
   font-size: 14px;
 }
+
+
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.logout-btn:hover {
+  background-color: #c9302c;
+}
+.auth-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login-link {
+   margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0275d8;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.login-link:hover {
+  background-color: #025aa5;
+}

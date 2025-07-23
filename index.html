@@ -14,31 +14,37 @@
   <div class="app-background">
    <div class="container">
       <h1>My To‑Do List</h1>
-      <button onclick="logout()" style="float: right;">Logout</button>
+  
+    <div class="input-area">
+  <input type="text" id="taskInput" placeholder="What do you want to do?" />
+  <button id="addTaskBtn">Add</button>
+</div>
 
-      <div class="input-area">
-        <input type="text" id="taskInput" placeholder="What do you want to do?" />
-    <button id="addTaskBtn">Add</button>
-     
-      <a href="./auth/login.html">Login</a>
-      </div>
-      <p id="errorMessage" style="color: rgb(126, 39, 59); display: none;">Please fill the field below to proceed.</p>
+<p id="errorMessage" style="color: rgb(126, 39, 59); display: none;">
+  Please fill the field below to proceed.
+</p>
 
-     <ul id="taskList"></ul>
-    </div>
+<ul id="taskList"></ul>
+
+<div class="auth-buttons">
+  <a href="./auth/login.html" class="login-link">Login</a>
+  <button onclick="logout()" class="logout-btn">Logout</button>
+  <a href="./auth/change-password.html" class="login-link">Change Password</a>
+
+</div>
+
   </div>
   <script>
   function logout() 
   {
     localStorage.setItem("loggedIn", "false");
-    window.location.href = "login.html";
+   window.location.href = "./auth/login.html";
+
   }
 
-  if (localStorage.getItem("loggedIn") !== "true") 
-  {
-    window.location.href = "login.html";
-  }
+  
 </script>
   <script src="script.js"></script>
 </body>
 </html>
+
