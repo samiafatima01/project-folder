@@ -12,14 +12,14 @@ input.addEventListener("keydown", function (e) {
   }
 });
 function addTask() {
-  let text = input.value.trim();
+  let text = input.value.trim(); // 🟢 first define the text
   let error = document.getElementById("errorMessage");
 
   if (text === "") {
-    error.style.display = "block";
+    error.textContent = "Please fill the field below to proceed.";
     return;
   } else {
-    error.style.display = "none";
+    error.textContent = "";
   }
 
   let li = document.createElement("li");
@@ -33,7 +33,7 @@ function addTask() {
   let btn = document.createElement("button");
   btn.textContent = "Delete";
   btn.addEventListener("click", function (e) {
-    e.stopPropagation();
+    e.stopPropagation(); // stops toggling on delete click
     li.remove();
     save();
   });
@@ -43,6 +43,7 @@ function addTask() {
   input.value = "";
   save();
 }
+
 
 function save() {
   let tasks = [];
@@ -65,4 +66,10 @@ function load() {
 
 load();
 
-
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    window.location.href = "login.html";
+  });
+}
